@@ -16,7 +16,7 @@ function App() {
       rmbtn.removeAttribute('disabled');
     }
     counter = counter + 1;
-    setCounter(counter)
+    setCounter(counter);
 
   }
   const removeValue = () => {
@@ -26,8 +26,11 @@ function App() {
     else if (counter==20) {
       addbtn.removeAttribute('disabled');
     }
+    
+      
       counter = counter - 1;
-      setCounter(counter)
+      setCounter(counter);
+    
       // rmbtn.removeAttribute('disabled');
     
   }

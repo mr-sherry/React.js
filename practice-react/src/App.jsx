@@ -1,21 +1,23 @@
 import { useState } from 'react'
 import './App.css'
-import Prac1 from './practice/Prac1';
-import Prac2 from './practice/Prac2';
+import MyCheckbox from './practice/MyCheckbox';
+import Input from './practice/Input';
+import Form from './practice/Form';
 
 function App() {
-  const experiment = 'Prac2'; // Change this to 'Prac2' to switch
+  let experiment = 'Form'; 
 
-  const components = {
-    Prac1,
-    Prac2,
+  let components = {
+    MyCheckbox,
+    Input,
+    Form,
   };
 
-  const SelectedExperiment = components[experiment] || (() => <div>No Experiment Selected</div>);
+  let SelectedExperiment = components[experiment];
 
   return (
     <div>
-      <h1>React Playground</h1>
+      <h1>Practice React</h1>
       <SelectedExperiment />
     </div>
   );

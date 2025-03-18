@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css'
 
 function App() {
-  let [counter, setCounter] = useState(0);
+  let [counter, setCounter] = useState(1);
   let courseName = "React";
   let addbtn=document.getElementById("addbtn")
   let rmbtn=document.getElementById("rmbtn")
@@ -20,7 +20,7 @@ function App() {
 
   }
   const removeValue = () => {
-    if (counter<2) {
+    if (counter==1) {
       rmbtn.setAttribute('disabled','');
     }
     else if (counter==20) {

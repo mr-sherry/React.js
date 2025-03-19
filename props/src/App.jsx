@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import UserCard from './components/CardOne';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 
 import './App.css'
@@ -13,11 +14,14 @@ function App() {
     <UserCard name="Ahmed" age={21} online={true}/>
     <UserCard name="raza" age={23} online={false}/>
     <UserCard name="shahid" age={25} online={true}/>
+    <UserCard name="ali" age={99} online={false}/>
     </div>
     
-   {/* <p className='text-danger'> helllo hi</p>
+   <p className='text-danger'> helllo hi</p>
       <Button variant="danger">Danger</Button>
-      <Button variant='success'> hello</Button> */}
+      <Button variant='success'> hello</Button>
+      <button className='btn btn-danger'>red</button>
+      <CloseButton />
     </>
   )
 }

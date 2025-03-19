@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function UserCard(props) {
@@ -10,8 +9,8 @@ function UserCard(props) {
           Age:{props.age}
         </Card.Text>
         <Card.Text>
-          isOnline:
-          {props.online ? "yes" : "no"}
+          Online: 
+           {props.online ? " yes" : " no"}
         </Card.Text>
       </Card.Body>
     </Card>

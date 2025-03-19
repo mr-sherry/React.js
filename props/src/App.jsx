@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
-import BasicExample from './components/CardOne';
+import UserCard from './components/CardOne';
+
 
 import './App.css'
 
@@ -9,13 +10,14 @@ function App() {
     <>
     <div className='d-flex gap-5'>
 
-    <BasicExample title='js'/>
-    <BasicExample title='html'/>
-    <BasicExample title='css'/>
+    <UserCard name="Ahmed" age={21} online={true}/>
+    <UserCard name="raza" age={23} online={false}/>
+    <UserCard name="shahid" age={25} online={true}/>
     </div>
-   <p className='text-danger'> helllo hi</p>
+    
+   {/* <p className='text-danger'> helllo hi</p>
       <Button variant="danger">Danger</Button>
-      <Button variant='success'> hello</Button>
+      <Button variant='success'> hello</Button> */}
     </>
   )
 }

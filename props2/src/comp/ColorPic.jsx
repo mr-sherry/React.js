@@ -10,11 +10,7 @@ function ColorPic() {
     setColor(e.target.value);
   }
 
-  return (
-    <div>
-      <input type="color" onChange={colorChange} />
-    </div>
-  );
+  return <input type="color" onChange={colorChange} />;
 }
 
 export default ColorPic;

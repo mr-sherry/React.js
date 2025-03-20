@@ -1,13 +1,21 @@
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import Btn from "./App";
-import ColorPic from "./comp/ColorPic";
+import App from "./App";
 
 createRoot(document.getElementById("root")).render(
   <>
-    <Btn color="yellow" />
-    <Btn color="gray" />
-    <Btn color="red" />
-    <ColorPic />
+    {/* <div
+      style={{ width: "100%", height: "100vh", backgroundColor: color }}
+      className="d-flex justify-content-center align-items-center"
+    >
+      <Btn color="yellow" />
+      <Btn color="gray" />
+      <Btn color="red" />
+      <Btn color="blue" />
+      <Btn color="yEllow1" />
+
+      <ColorPic />
+    </div> */}
+
+    <App />
   </>
 );

@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import MyCheckbox from './practice/MyCheckbox';
-import Input from './practice/Input';
-import Form from './practice/Form';
-import Prac from './practice/new';
-import Boolean from './practice/New1';
-import TextChange from './practice/Textarea';
+import { useState } from "react";
+import "./App.css";
+import MyCheckbox from "./practice/MyCheckbox";
+import Input from "./practice/Input";
+import Form from "./practice/Form";
+import Prac from "./practice/new";
+import Boolean from "./practice/New1";
+import TextChange from "./practice/Textarea";
+import StateM from "./practice/StateM";
 
 function App() {
-  let experiment = 'TextChange'; 
+  let experiment = "StateM";
 
   let components = {
     MyCheckbox,
@@ -17,6 +18,7 @@ function App() {
     Prac,
     Boolean,
     TextChange,
+    StateM,
   };
 
   let SelectedExperiment = components[experiment];

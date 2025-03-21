@@ -38,6 +38,7 @@ function App() {
           <ShapeColor colorClick={colorUpdate} color="red" />
           <ShapeColor colorClick={colorUpdate} color="green" />
           <ShapeColor colorClick={colorUpdate} color="olive" />
+          <ShapeColor colorClick={colorUpdate} color="grey" />
         </div>
         <div
           style={{
@@ -51,6 +52,9 @@ function App() {
           <ShapeType shapeClick={typeUpdate} type="square" />
           <ShapeType shapeClick={typeUpdate} type="triangle" />
           <ShapeType shapeClick={typeUpdate} type="oval" />
+          <ShapeType shapeClick={typeUpdate} type="rectangle" />
+          <ShapeType shapeClick={typeUpdate} type="hexagon" />
+          <ShapeType shapeClick={typeUpdate} type="star" />
         </div>
       </div>
       <Shape />

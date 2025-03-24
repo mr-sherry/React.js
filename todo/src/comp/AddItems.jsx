@@ -7,7 +7,7 @@ function AddItems({ itemEdit, itemRemover, items }) {
         <p key={item.id}>
           {item.value}
           <button onClick={() => itemRemover(item.id)}>Remove</button>
-          <button onClick={() => itemEdit(item.id)}>Edit</button>
+          <button onClick={() => itemEdit(item.id, item.value)}>Edit</button>
         </p>
       ))}
     </>

@@ -5,6 +5,7 @@ import Table from "./comp/Table";
 function App() {
   const [keys, setKeys] = useState([]);
   const [values, setValues] = useState([]);
+
   useEffect(() => {
     console.log("api Fetched");
     async function hello() {
@@ -17,6 +18,7 @@ function App() {
     }
     hello();
   }, []);
+
   // console.log(Object.keys(data));
 
   return (

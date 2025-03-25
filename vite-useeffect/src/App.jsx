@@ -1,34 +1,27 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Table from "./comp/Table";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState([]);
+  const [keys, setKeys] = useState([]);
+  const [values, setValues] = useState([]);
   useEffect(() => {
     console.log("api Fetched");
-
-    return async function hello() {
-      let data = await fetch("https://api.github.com/users/mr-sherry");
-
-      let data1 = await data.json();
-      setData(data1.name);
-      console.log(data1.login);
-    };
-  }, [count]);
-
-  // async function hello() {
-  //   let data = await fetch("https://api.github.com/users/mr-sherry");
-
-  //   let data1 = await data.json();
-  //   console.log(data1);
-  // }
+    async function hello() {
+      let api = await fetch("https://api.github.com/users/mr-sherry");
+      let fetchedData = await api.json();
+      let allKeys = Object.keys(fetchedData);
+      setKeys(allKeys);
+      let allValues = Object.values(fetchedData);
+      setValues(allValues);
+    }
+    hello();
+  }, []);
+  // console.log(Object.keys(data));
 
   return (
     <>
-      <h1>
-        {count},{data}
-      </h1>
-      <button onClick={() => setCount(count + 1)}>hello</button>
+      <Table keys={keys} values={values} />
     </>
   );
 }

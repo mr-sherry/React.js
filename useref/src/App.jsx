@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Hello from "./comp/Hello";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,14 +13,7 @@ function App() {
 
   return (
     <div style={{ padding: "20px", fontSize: "18px" }}>
-      <p>Count: {count}</p>
-      <div
-        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-      >
-        <p>Incremented times: </p>
-        <p ref={countRef}>0</p>
-      </div>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <Hello count={count} countRef={countRef} setCount={setCount} />
     </div>
   );
 }

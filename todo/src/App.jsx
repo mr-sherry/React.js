@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./App.css";
 import AddItems from "./comp/AddItems";
 
@@ -8,8 +8,7 @@ function App() {
   let [replaceBtn, setReplaceBtn] = useState(false);
   let [editId, setEditId] = useState(0);
 
-  let addItem = () => {
-    console.log(inputValue);
+  let addItem = useCallback(() => {
     if (inputValue === "") {
       alert("Please Enter Value");
     } else {
@@ -19,21 +18,24 @@ function App() {
       ]);
       setInputValue("");
     }
-  };
+    console.log("add");
+  }, [inputValue]);
 
-  let removeItem = (id) => {
+  let removeItem = useCallback((id) => {
     setItems((prevItem) => prevItem.filter((item) => item.id !== id));
-  };
+    console.log("remove");
+  }, []);
 
-  let editItem = (id, oldValue) => {
+  let editItem = useCallback((id, oldValue) => {
     setEditId(id);
     setReplaceBtn(true);
     setInputValue(oldValue);
     let editP = document.getElementById("input");
     editP.focus();
-  };
+    console.log("edit");
+  }, []);
 
-  let saveItem = () => {
+  let saveItem = useCallback(() => {
     if (inputValue === "") {
       alert("Please Enter Value");
     } else {
@@ -45,7 +47,8 @@ function App() {
       setReplaceBtn(false);
       setInputValue("");
     }
-  };
+    console.log("save");
+  }, [inputValue, editId]);
 
   return (
     <>

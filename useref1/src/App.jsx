@@ -15,8 +15,8 @@ function Input() {
     localStorage.setItem("inputValue", inputValue);
   }, [inputValue]);
 
-  let handleChange = (e) => {
-    setInputValue(e.target.value);
+  let handleClick = () => {
+    setInputValue(inputRef.current.value);
   };
 
   return (
@@ -25,8 +25,6 @@ function Input() {
       <input
         ref={inputRef}
         type="text"
-        value={inputValue}
-        onChange={handleChange}
         style={{
           padding: "10px",
           fontSize: "16px",
@@ -36,6 +34,7 @@ function Input() {
           outline: "none",
         }}
       />
+      <button onClick={handleClick}>save</button>
       <p>Current Value: {inputValue}</p>
     </div>
   );

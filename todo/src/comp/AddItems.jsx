@@ -1,6 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 function AddItems({ itemEdit, itemRemover, items }) {
+  console.log("hello i am here add");
+
   return (
     <>
       {items.map((item) => (
@@ -14,4 +16,4 @@ function AddItems({ itemEdit, itemRemover, items }) {
   );
 }
 
-export default AddItems;
+export default memo(AddItems);

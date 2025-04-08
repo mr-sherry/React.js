@@ -25,8 +25,6 @@ export default function TaskManager() {
   }, [tasks]);
 
   const addTask = useCallback(() => {
-    if (newTaskText === "") return;
-
     setTasks((prevTasks) => [
       ...prevTasks,
       {

@@ -4,19 +4,17 @@ function useLocalStorage(key,value) {
   
   let hello=()=>{
     let value1=localStorage.getItem(key);
-    console.log("saved name",value1);
-    console.log("saved key",key);
     return value1 !== null ? value1:value;
   }
-  const [item,setItem]=useState(hello)
+  const [name,setName]=useState(hello)
 
   useEffect(()=>{
-    localStorage.setItem(key,item)
-  },[key,item])
+    localStorage.setItem(key,name)
+  },[key,name])
 
 
   return (
-    [item,setItem]
+    [name,setName]
   )
 }
 

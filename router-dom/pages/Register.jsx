@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Register() {
   const baseColor = "#1e1e1e";
@@ -70,9 +71,12 @@ function Register() {
         </form>
         <div style={footerStyle}>
           Already have an account?{" "}
-          <span style={{ textDecoration: "underline", cursor: "pointer" }}>
+          <Link
+            to={"/login"}
+            style={{ textDecoration: "underline", cursor: "pointer" }}
+          >
             Sign In
-          </span>
+          </Link>
         </div>
       </div>
     </div>

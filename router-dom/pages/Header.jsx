@@ -14,8 +14,42 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Header() {
+  const [activeNav, setActiveNav] = useState("home");
+
+  const activeNavStyle = {
+    padding: "8px 16px",
+    textDecoration: "none",
+    color: "#1e5bc6",
+    fontWeight: 500,
+    backgroundColor: "#e6f0ff",
+    borderRadius: 20,
+  };
+
+  const inactiveNavStyle = {
+    padding: "8px 16px",
+    textDecoration: "none",
+    color: "#333",
+    fontWeight: 500,
+  };
+
+  const authButtonStyle = {
+    display: "flex",
+    alignItems: "center",
+    padding: "8px 24px",
+    backgroundColor: "#1e2a4a",
+    color: "white",
+    textDecoration: "none",
+    borderRadius: 20,
+    fontWeight: 500,
+  };
+
+  const handleNavClick = (navItem) => {
+    setActiveNav(navItem);
+  };
+
   return (
     <header
       style={{
@@ -25,11 +59,11 @@ export default function Header() {
         padding: "16px 24px",
         backgroundColor: "white",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+        marginBottom: "30px",
       }}
     >
-      {/* Logo */}
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Link to={"/"}>
+        <Link to="/" onClick={() => handleNavClick("home")}>
           <div style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             <span style={{ color: "#1e2a4a" }}>Defy</span>{" "}
             <span style={{ fontSize: 18, fontWeight: "normal", color: "#666" }}>
@@ -39,7 +73,6 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* Navigation Links */}
       <nav
         style={{
           display: "flex",
@@ -48,45 +81,30 @@ export default function Header() {
         }}
       >
         <Link
-          to={"/"}
-          style={{
-            padding: "8px 16px",
-            textDecoration: "none",
-            color: "#1e5bc6",
-            fontWeight: 500,
-            backgroundColor: "#e6f0ff",
-            borderRadius: 20,
-          }}
+          to="/"
+          style={activeNav === "home" ? activeNavStyle : inactiveNavStyle}
+          onClick={() => handleNavClick("home")}
         >
           HOME
         </Link>
 
         <Link
-          to={"/buy-esim"}
-          style={{
-            padding: "8px 16px",
-            textDecoration: "none",
-            color: "#333",
-            fontWeight: 500,
-          }}
+          to="/buy-esim"
+          style={activeNav === "esim" ? activeNavStyle : inactiveNavStyle}
+          onClick={() => handleNavClick("esim")}
         >
           BUY ESIM
         </Link>
 
         <Link
-          to={"/about"}
-          style={{
-            padding: "8px 16px",
-            textDecoration: "none",
-            color: "#333",
-            fontWeight: 500,
-          }}
+          to="/about"
+          style={activeNav === "about" ? activeNavStyle : inactiveNavStyle}
+          onClick={() => handleNavClick("about")}
         >
           ABOUT US
         </Link>
       </nav>
 
-      {/* Auth Buttons */}
       <div
         style={{
           display: "flex",
@@ -94,34 +112,10 @@ export default function Header() {
           gap: 16,
         }}
       >
-        <Link
-          to={"/register"}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            padding: "8px 24px",
-            backgroundColor: "#1e2a4a",
-            color: "white",
-            textDecoration: "none",
-            borderRadius: 20,
-            fontWeight: 500,
-          }}
-        >
+        <Link to="/register" style={authButtonStyle}>
           Register
         </Link>
-        <Link
-          to={"/login"}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            padding: "8px 24px",
-            backgroundColor: "#1e2a4a",
-            color: "white",
-            textDecoration: "none",
-            borderRadius: 20,
-            fontWeight: 500,
-          }}
-        >
+        <Link to="/login" style={authButtonStyle}>
           Login
         </Link>
       </div>

@@ -75,7 +75,7 @@ function Register() {
             to={"/login"}
             style={{ textDecoration: "underline", cursor: "pointer" }}
           >
-            Sign In
+            Login
           </Link>
         </div>
       </div>

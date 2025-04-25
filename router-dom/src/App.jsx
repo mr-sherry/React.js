@@ -6,10 +6,9 @@ import {
   Link,
   Outlet,
 } from "react-router";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Header from "../pages/Header";
-import Footer from "../pages/Footer";
+
+import Header from "../pages/Header/Header";
+import Footer from "../pages/Footer/Footer";
 
 function App() {
   return (

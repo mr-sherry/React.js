@@ -1,0 +1,72 @@
+/* Header.module.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+  }
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .logoPrimary {
+    color: #1e2a4a;
+  }
+  
+  .logoSecondary {
+    font-size: 18px;
+    font-weight: normal;
+    color: #666;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .activeNav {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #1e5bc6;
+    font-weight: 500;
+    background-color: #e6f0ff;
+    border-radius: 20px;
+  }
+  
+  .inactiveNav {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .authButtons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .authButton {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    background-color: #1e2a4a;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  

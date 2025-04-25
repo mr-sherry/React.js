@@ -1,0 +1,63 @@
+/* Register.module.css */
+
+/* Container for the entire register page */
+.registerContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-family: sans-serif;
+    margin-top: 50px;
+  }
+  
+  /* Style for the form container */
+  .registerForm {
+    width: 300px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #1e1e1e;
+    box-shadow: 8px 8px 15px #141414, -8px -8px 15px #2e2e2e;
+    text-align: center;
+  }
+  
+  /* Style for form input fields */
+  .registerInput {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background-color: #1e1e1e;
+    box-shadow: inset 4px 4px 6px #141414, inset -4px -4px 6px #2e2e2e;
+    font-size: 14px;
+    color: #f0f0f0;
+  }
+  
+  /* Style for the submit button */
+  .registerButton {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    background-color: #1e1e1e;
+    box-shadow: 4px 4px 10px #141414, -4px -4px 10px #2e2e2e;
+    color: #f0f0f0;
+    font-size: 14px;
+  }
+  
+  /* Footer style */
+  .registerFooter {
+    font-size: 12px;
+    margin-top: 15px;
+    color: #aaa;
+  }
+  
+  .registerFooter a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  

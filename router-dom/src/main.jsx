@@ -1,48 +1,20 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import {
-  BrowserRouter,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-  Routes,
-} from "react-router";
+} from "react-router-dom";
 import Home from "../pages/Home/Home.jsx";
 import About from "../pages/About/About.jsx";
 import Buyesim from "../pages/Buyesim/Buyesim.jsx";
 import Register from "../pages/Register/Register.jsx";
 import Login from "../pages/Login/Login.jsx";
 import User from "../pages/User/User.jsx";
-import Details from "../pages/Details/Details.jsx";
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />,
-//     children: [
-//       {
-//         path: "",
-//         element: <Home />,
-//       },
-//       {
-//         path: "about",
-//         element: <About />,
-//       },
-//       {
-//         path: "buy-esim",
-//         element: <Buyesim />,
-//       },
-//       {
-//         path: "register",
-//         element: <Register />,
-//       },
-//       {
-//         path: "login",
-//         element: <Login />,
-//       },
-//     ],
-//   },
-// ]);
+import Profile from "../pages/Profile/Profile.jsx";
+import UserContextProvider from "./Context/UserContextProvider.jsx";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,12 +25,18 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
       <Route path="user" element={<User />} />
-      <Route path="user/:username" element={<Details />} />
+      {/* <Route path="profile/:username" element={<Profile />} /> */}
+      <Route path="profile" element={<Profile />} />
     </Route>
   )
 );
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
-  // <App />
+
+
+  <UserContextProvider>
+    <RouterProvider router={router} />
+
+  </UserContextProvider>
+
 );

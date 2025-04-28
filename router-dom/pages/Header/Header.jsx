@@ -12,11 +12,15 @@
 
 // export default Header;
 
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
+import UserContext from "../../src/Context/UserContext";
 
 export default function Header() {
+  const { userBool, setUserBool } = useContext(UserContext);
+  console.log(userBool);
+
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
@@ -56,24 +60,29 @@ export default function Header() {
         >
           ABOUT US
         </NavLink>
-
         <NavLink
-          to="/user"
+          to="/profile"
           className={({ isActive }) =>
             isActive ? styles.activeNav : styles.inactiveNav
           }
         >
-          USER
+          Profile
         </NavLink>
       </nav>
 
-      <div className={styles.authButtons}>
-        <NavLink to="/register" className={styles.authButton}>
+      <div className={styles.authButtons} >
+        <NavLink to="/register" className={`${styles.authButton} ${userBool ? styles.hidden : ""}`}>
           Register
         </NavLink>
-        <NavLink to="/login" className={styles.authButton}>
+        <NavLink to="/login" className={`${styles.authButton} ${userBool ? styles.hidden : ""}`}>
           Login
         </NavLink>
+        <NavLink to="/profile" className={`${!userBool ? styles.hidden : ""}`}>
+          <img className={styles.profileimg} src="src/assets/user.png" alt="" />
+        </NavLink>
+        <button className={`${styles.authButton} ${!userBool ? styles.hidden : ""}`} onClick={() => setUserBool(false)}>
+          Logout
+        </button>
       </div>
     </header>
   );

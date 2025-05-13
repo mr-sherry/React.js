@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './CounerGme.module.css'; 
+import styles from './CounerGme.module.css';
 
 function CounterGame() {
   const [count, setCount] = useState(0);
@@ -14,25 +14,28 @@ function CounterGame() {
   const countRef = useRef(0);
 
   const handleStart = () => {
-    if (time >= 10 && !start.userA && !start.userB) {
-      setInitialTime(time);
-      setCount(0);
-      countRef.current = 0;
-      setStart({ userA: true, userB: false });
-    }
+    setTimeout(() => {
+      if (time >= 10 && !start.userA && !start.userB) {
+        setInitialTime(time);
+        setCount(0);
+        countRef.current = 0;
+        setStart({ userA: true, userB: false });
+        setUserScore({ userA: 0, userB: 0 });
+      }
+    }, 1000);
   };
 
   useEffect(() => {
     clearInterval(intervalRef.current);
     clearTimeout(delayRef.current);
 
-    // USER A turn
     if (start.userA && !start.userB && time > 0) {
       intervalRef.current = setInterval(() => {
         setTime((prev) => {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
-            setUserScore((prev) => ({ ...prev, userA: countRef.current }));
+            const userAScore = countRef.current;
+            setUserScore((prev) => ({ ...prev, userA: userAScore }));
             countRef.current = 0;
             setCount(0);
             setIsPaused(true);
@@ -48,7 +51,6 @@ function CounterGame() {
       }, 1000);
     }
 
-    // USER B turn
     if (start.userB && !start.userA && time > 0) {
       intervalRef.current = setInterval(() => {
         setTime((prev) => {
@@ -58,15 +60,17 @@ function CounterGame() {
 
             setUserScore((prevScores) => {
               const finalScores = { ...prevScores, userB: userBScore };
-
-              // Show game result alert
-              if (finalScores.userA > finalScores.userB) {
-                alert(`Game Over! 🎉 User A wins! (${finalScores.userA} vs ${finalScores.userB})`);
-              } else if (finalScores.userB > finalScores.userA) {
-                alert(`Game Over! 🎉 User B wins! (${finalScores.userB} vs ${finalScores.userA})`);
-              } else {
-                alert(`Game Over! It's a tie at ${finalScores.userA} points each.`);
-              }
+              setTimeout(() => {
+                if (finalScores.userA > finalScores.userB) {
+                  alert(`Game Over! User A wins! (${finalScores.userA} vs ${finalScores.userB})`);
+                } else if (finalScores.userB > finalScores.userA) {
+                  alert(`Game Over! User B wins! (${finalScores.userA} vs ${finalScores.userB})`);
+                } else {
+                  alert(`Game Over! It's a tie at ${finalScores.userA} points each.`);
+                }
+                setUserScore({ userA: 0, userB: 0 })
+              }, 1000);
+              setInitialTime(0);
 
               return finalScores;
             });
@@ -134,10 +138,10 @@ function CounterGame() {
         {start.userA
           ? 'User A'
           : start.userB
-          ? 'User B'
-          : isPaused
-          ? 'Waiting...'
-          : 'None'}
+            ? 'User B'
+            : isPaused
+              ? 'Waiting...'
+              : 'None'}
       </h2>
     </div>
   );

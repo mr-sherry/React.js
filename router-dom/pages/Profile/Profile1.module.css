@@ -1,0 +1,94 @@
+.profileContainer {
+    background: #f9fbfd;
+    padding: 20px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .profileInfo {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .subTitle {
+    color: gray;
+    margin: 5px 0;
+  }
+  .subTitle1 {
+    color: rgb(0, 0, 0);
+    margin: 5px 0;
+  }
+  
+  .description {
+    color: #000000;
+    margin-top: 10px;
+  }
+  
+  .socialIcons {
+    margin-top: 15px;
+  }
+  
+  .socialIcons i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .button:hover {
+    background: #eef0f3;
+  }
+  
+  .summarySection {
+    background: #eaf1f8;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .summarySection h2 {
+    margin-bottom: 10px;
+  }
+  
+  .summarySection p {
+    color: #555;
+    line-height: 1.6;
+  }
+  .nameHead{
+    text-align: center;
+  }

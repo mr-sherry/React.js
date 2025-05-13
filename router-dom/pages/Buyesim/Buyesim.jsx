@@ -1,7 +1,11 @@
-import React from "react";
-import styles from "./Buyesim.module.css";
+import React, { useContext } from "react";
+import stylesDark from "./BuyesimDark.module.css";
+import stylesLight from "./Buyesim.module.css";
+import UserContext from "../../src/Context/UserContext";
 
 function Buyesim() {
+  const { themeBool } = useContext(UserContext)
+  const styles = themeBool ? stylesDark : stylesLight;
   return (
     <div className={styles.container}>
       <div className={styles.card}>

@@ -6,10 +6,15 @@ function Game() {
   const randomWord = useApiFetch();
   const [word, setWord] = useState("")
   const [letters, setLetters] = useState([[], [], [], [], [], []]);
-  const [rowNum, setRowNum] = useState(0)
+  const [rowNum, setRowNum] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+
+  console.log(gameOver);
+
+
 
   useEffect(() => {
-    setWord(randomWord)
+    setWord('aslam');
     const eventManage = (e) => {
       const key = e.key.toLowerCase();
 
@@ -20,12 +25,34 @@ function Game() {
           setLetters(newLetters);
         }
       }
-      else if (key === 'enter') {
-        if (letters[rowNum].length === 5) {
-          setRowNum(rowNum + 1);
-        }
-        else if (key === 'backspace') {
 
+      else if (key === "enter") {
+        setLetters((prevLetters) => {
+          const currentRow = prevLetters[rowNum];
+          if (currentRow.length === 5) {
+            const currentWord = currentRow.join("").toLowerCase();
+
+            if (currentWord === word.toLowerCase()) {
+              setGameOver(true);
+              alert("You Win! 🎉");
+              window.location.reload()
+            } else if (rowNum < 5) {
+              setRowNum((prevRowNum) => prevRowNum + 1);
+            } else {
+              setGameOver(true);
+              alert(`Game Over! The word was "${word}".`);
+              window.location.reload()
+
+            }
+          }
+          return prevLetters;
+        });
+      }
+      else if (key === 'backspace') {
+        if (letters[rowNum].length > 0) {
+          const newLetters = [...letters];
+          newLetters[rowNum] = newLetters[rowNum].slice(0, -1);
+          setLetters(newLetters);
         }
       }
     }
@@ -34,7 +61,7 @@ function Game() {
     return () => {
       window.removeEventListener('keydown', eventManage)
     }
-  }, [letters, rowNum, randomWord])
+  }, [letters, rowNum])
 
 
   const divLetters = (i, j) => {
@@ -44,13 +71,10 @@ function Game() {
   const divClass = (i, j) => {
     const currentLetter = letters[i][j];
     if (!currentLetter) return 'white';
-    console.log(randomWord);
-    console.log(currentLetter);
 
-
-    if (currentLetter === randomWord[j]) {
+    if (currentLetter === word[j]) {
       return 'green';
-    } else if (randomWord.includes(currentLetter)) {
+    } else if (word.includes(currentLetter)) {
       return 'yellow';
     }
   };
@@ -79,7 +103,7 @@ function Game() {
     <>
       <div className={styles.mainDiv}>
         <h1>Wordle Game By Ahmed</h1>
-        <h1>Random Word:{word}</h1>
+        {/* <h1>Random Word:{word}</h1> */}
         <div>
 
           {rows}

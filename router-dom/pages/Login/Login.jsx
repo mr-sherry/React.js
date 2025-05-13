@@ -1,31 +1,54 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Login.module.css";
+import stylesDark from "./LoginDark.module.css";
+import stylesLight from "./Login.module.css";
 import UserContext from "../../src/Context/UserContext";
 
 function Login() {
   const [loginInfo, setLoginInfo] = useState({})
-  const { user, setUserBool, setLoggedUser } = useContext(UserContext)
+  const { user, setUserBool, setLoggedUser, themeBool } = useContext(UserContext)
   console.log(user);
-  
-  
+  const styles = themeBool ? stylesDark : stylesLight;
+
 
   const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    user.map((u) => {
-      
-      if (u.username !== loginInfo.username) {
-        alert("user Not Found")
-      } else {
-        setLoggedUser({ username: u.username, password: u.password })
-        setUserBool(true)
-        setLoginInfo({})
-        alert("Login Succesfull")
-        navigate("/profile")
-      }
-    })
+    // user.map((u) => {
+    //   if (u.username === loginInfo.username) {
+    //     setLoggedUser({ username: u.username, password: u.password, gender: u.gender, email: u.email, about: u.about, discription: u.discription, fName: u.fName })
+    //     setUserBool(true)
+    //     setLoginInfo({})
+    //     alert("Login Succesfull")
+    //     navigate("/profile")
+    //   } else {
+    //     alert("user Not Found")
+    //   }
+    // })
+
+
+
+
+    const matchedUser = user.find((u) => u.username === loginInfo.username);
+
+    if (matchedUser) {
+      setLoggedUser({
+        username: matchedUser.username,
+        password: matchedUser.password,
+        gender: matchedUser.gender,
+        email: matchedUser.email,
+        about: matchedUser.about,
+        discription: matchedUser.discription,
+        fName: matchedUser.fName,
+      });
+      setUserBool(true);
+      setLoginInfo({});
+      alert("Login Successful");
+      navigate("/profile");
+    } else {
+      alert("User Not Found");
+    }
 
 
   }

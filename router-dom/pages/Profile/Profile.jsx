@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Profile.module.css";
+import stylesDark from "./ProfileDark.module.css";
+import stylesLight from "./Profile.module.css";
 import UserContext from "../../src/Context/UserContext";
 
 const Profile = () => {
   const navigate = useNavigate()
-  const { loggedUser, userBool } = useContext(UserContext)
+  const { loggedUser, userBool, themeBool } = useContext(UserContext)
   const [user1, setUser1] = useState(null);
-  console.log(user1);
-
+  // console.log(user1);
+  const styles = themeBool ? stylesDark : stylesLight;
 
   useEffect(() => {
     if (userBool) {

@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Accordion from "react-bootstrap/Accordion";
-import styles from "./About.module.css";
+import stylesDark from "./AboutDark.module.css";
+import stylesLight from "./About.module.css";
+import UserContext from "../../src/Context/UserContext";
+
 
 function About() {
+  const { themeBool } = useContext(UserContext)
+  const styles = themeBool ? stylesDark : stylesLight;
   return (
     <div className={styles.container}>
       <Accordion defaultActiveKey="0" className={styles.accordionWrapper}>

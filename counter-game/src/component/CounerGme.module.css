@@ -1,27 +1,103 @@
-.mainDiv{
+/* Body Styling */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Container */
+.mainDiv {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #000000;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px #0a0a0a, -10px -10px 30px #1f1f1f;
+  text-align: center;
+}
+
+/* Headings */
+h1,
+h2 {
+  margin: 15px 0;
+  color: #ffffff;
+  text-shadow: 0 0 3px #ffffff22;
+}
+
+/* Input - Visible with Neumorphism */
+input[type='number'] {
+  width: 100px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #444;
+  border-radius: 12px;
+  background-color: #111111;
+  color: #ffffff;
+  box-shadow: 4px 4px 10px #0a0a0a, -4px -4px 10px #1f1f1f;
+  outline: none;
+  margin: 20px 10px;
+  transition: all 0.3s ease;
+}
+
+input[type='number']:focus {
+  box-shadow: inset 2px 2px 6px #0a0a0a, inset -2px -2px 6px #1f1f1f,
+    0 0 5px #ffffffaa;
+}
+
+input[type='number']:disabled {
+  opacity: 0.3;
+  box-shadow: none;
+}
+
+/* Button Neumorphic and Visible */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: #111111;
+  color: #ffffff;
+  box-shadow: 6px 6px 12px #0a0a0a, -6px -6px 12px #1f1f1f;
+  margin: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #1c1c1c;
+  box-shadow: inset 4px 4px 8px #0a0a0a, inset -4px -4px 8px #1f1f1f,
+    0 0 8px #ffffff22;
+  transform: scale(1.02);
+}
+
+/* Current Turn Text */
+h2 {
+  font-size: 20px;
+  margin-top: 25px;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .mainDiv {
+    padding: 20px;
+  }
+
+  h1,
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.mainDiv h1{
-margin-bottom: 100px;
-}
-.mainDiv button{
-    padding: 10px;
-    border: none;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.mainDiv button:disabled{
-    padding: 10px;
-    border: none;
-    background-color: rgb(168, 168, 168);
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    /* cursor: pointer; */
+    font-size: 14px;
+  }
 }

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Footer.module.css";
+import stylesDark from "./FooterDark.module.css";
+import stylesLight from "./Footer.module.css";
+import UserContext from "../../src/Context/UserContext";
+
 
 const Footer = () => {
+  const { themeBool } = useContext(UserContext)
+  const styles = themeBool ? stylesDark : stylesLight;
   return (
     <footer className={styles.footer}>
       <div className={styles.socialIcons}>

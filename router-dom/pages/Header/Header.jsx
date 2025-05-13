@@ -1,25 +1,22 @@
-// import React from "react";
-// import { Link } from "react-router";
-
-// const Header = () => {
-//   return (
-//     <div>
-//       <Link to={"/"}> Home</Link>
-//       <Link to={"/about"}> About</Link>
-//     </div>
-//   );
-// };
-
-// export default Header;
 
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Header.module.css";
+import stylesDark from "./HeaderDark.module.css";
+import stylesLight from "./Header.module.css";
 import UserContext from "../../src/Context/UserContext";
 
 export default function Header() {
-  const { userBool, setUserBool } = useContext(UserContext);
+  const { userBool, setUserBool, setLoggedUser, themeBool, setThemeBool } = useContext(UserContext);
   console.log(userBool);
+  console.log("🚀 ~ Header ~ themeBool:", themeBool)
+  const styles = themeBool ? stylesDark : stylesLight;
+
+
+  const handleLogout = () => {
+    setUserBool(false);
+    setLoggedUser({})
+
+  }
 
   return (
     <header className={styles.header}>
@@ -68,6 +65,14 @@ export default function Header() {
         >
           Profile
         </NavLink>
+        <NavLink
+          to="/profile1"
+          className={({ isActive }) =>
+            isActive ? styles.activeNav : styles.inactiveNav
+          }
+        >
+          Profile1
+        </NavLink>
       </nav>
 
       <div className={styles.authButtons} >
@@ -80,8 +85,11 @@ export default function Header() {
         <NavLink to="/profile" className={`${!userBool ? styles.hidden : ""}`}>
           <img className={styles.profileimg} src="src/assets/user.png" alt="" />
         </NavLink>
-        <button className={`${styles.authButton} ${!userBool ? styles.hidden : ""}`} onClick={() => setUserBool(false)}>
+        <button className={`${styles.authButton} ${!userBool ? styles.hidden : ""}`} onClick={handleLogout}>
           Logout
+        </button>
+        <button className={styles.authButton} onClick={() => setThemeBool(!themeBool)}>
+          {themeBool ? "Light" : "Dark"}
         </button>
       </div>
     </header>

@@ -11,9 +11,9 @@ import About from "../pages/About/About.jsx";
 import Buyesim from "../pages/Buyesim/Buyesim.jsx";
 import Register from "../pages/Register/Register.jsx";
 import Login from "../pages/Login/Login.jsx";
-import User from "../pages/User/User.jsx";
 import Profile from "../pages/Profile/Profile.jsx";
 import UserContextProvider from "./Context/UserContextProvider.jsx";
+import Profile1 from "../pages/Profile/Profile1.jsx";
 
 
 const router = createBrowserRouter(
@@ -24,9 +24,8 @@ const router = createBrowserRouter(
       <Route path="buyesim" element={<Buyesim />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
-      <Route path="user" element={<User />} />
-      {/* <Route path="profile/:username" element={<Profile />} /> */}
       <Route path="profile" element={<Profile />} />
+      <Route path="profile1" element={<Profile1 />} />
     </Route>
   )
 );

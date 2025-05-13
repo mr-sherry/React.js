@@ -1,12 +1,13 @@
 
 .container {
-    background-color: white;
+    background-color: #121212;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
     font-family: sans-serif;
+    color: #f0f0f0; 
   }
   
   .accordionWrapper {
@@ -24,7 +25,7 @@
   
   .accordionHeader {
     background-color: #1e1e1e;
-    color: #f0f0f0;
+    color: #ffffff;
     font-weight: bold;
     border: none;
     border-radius: 12px;
@@ -34,7 +35,7 @@
   
   .accordionBody {
     background-color: #1e1e1e;
-    color: #f0f0f0;
+    color: #e0e0e0;
     border-radius: 0px;
     padding: 20px;
     box-shadow: inset 4px 4px 8px #141414, inset -4px -4px 8px #2e2e2e;

@@ -1,0 +1,103 @@
+.profileContainer {
+    background: #121212;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+  
+  .header {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #f0f0f0;
+  }
+  
+  .profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #2a2a2a;
+  }
+  
+  .profileInfo {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .subTitle {
+    color: #aaa;
+    margin: 5px 0;
+  }
+  
+  .subTitle1 {
+    color: #e0e0e0;
+    margin: 5px 0;
+  }
+  
+  .description {
+    color: #cccccc;
+    margin-top: 10px;
+  }
+  
+  .socialIcons {
+    margin-top: 15px;
+  }
+  
+  .socialIcons i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #bbbbbb;
+    cursor: pointer;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .button {
+    background: #1e1e1e;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #f0f0f0;
+  }
+  
+  .button:hover {
+    background: #2a2a2a;
+  }
+  
+  .summarySection {
+    background: #1a1a1a;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #dddddd;
+  }
+  
+  .summarySection h2 {
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .summarySection p {
+    color: #bbbbbb;
+    line-height: 1.6;
+  }
+  
+  .nameHead {
+    text-align: center;
+    color: #ffffff;
+  }
+  
